@@ -9,11 +9,9 @@ npm install
 ## Start
 ```
 npm run start
-
 ```
 
 ## Dev
 ```
 npm run dev
-
 ```
