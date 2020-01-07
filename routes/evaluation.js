@@ -5,8 +5,14 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    const out = exec('ls -la');
-    res.json({ "eval": out });
+    console.log(11);
+    exec("bash shell/run.sh", (error, stdout, stderr) => {
+        if (!error) {
+            res.json({ "eval": stdout });
+        } else {
+            res.json({ "eval": stderr });
+        }
+    });
 });
 
 module.exports = router;
