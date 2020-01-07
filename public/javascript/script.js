@@ -10,6 +10,12 @@ window.onload = () => {
     let timer = undefined;
     let start = undefined;
 
+    document.getElementById("select")
+        .addEventListener('click', (event) => {
+            event.preventDefault();
+            fileInput.click();
+        });
+
     fileCatcher.addEventListener('submit', async (event) => {
         document.getElementById("preloader").style.display = "block";
 
@@ -35,8 +41,8 @@ window.onload = () => {
     renderFileList = () => {
         fileListDisplay.innerHTML = '';
         fileList.forEach((file, index) => {
-            let fileDisplayEl = document.createElement('p');
-            fileDisplayEl.innerHTML = (index + 1) + ': ' + file.name;
+            let fileDisplayEl = document.createElement('li');
+            fileDisplayEl.innerHTML = file.name;
             fileListDisplay.appendChild(fileDisplayEl);
         });
     };
